@@ -13,6 +13,7 @@ class Sprite {
         this.position = position
         this.velocity = velocity
         this.height = 150
+        this.lastKey
     }
 
     draw() {
@@ -61,6 +62,9 @@ const keys = {
     },
     d: {
         pressed: false
+    },
+    w: {
+        pressed: false
     }
 }
 let lastKey
@@ -92,6 +96,21 @@ window.addEventListener('keydown', (event) => {
             keys.a.pressed = true
             lastKey = 'a'
             break
+        case 'w':
+            player.velocity.y = -10
+            break
+
+        case 'ArrowRight':
+            keys.ArrowRight.pressed = true
+            enemy.lastKey = 'ArrowRight'
+            break
+        case 'ArrowLeft':
+            keys.ArrowLeft.pressed = true
+            enemy.lastKey - 'ArrowLeft'
+            break
+        case 'ArrowUp':
+            player.velocity.y = -10
+            break
     }
     console.log(event.key)
 })
@@ -104,6 +123,9 @@ window.addEventListener('keyup', (event) => {
         case 'a':
             keys.a.pressed = false
             break
+
+            //enemy keys
+            
     }
     console.log(event.key)
 })
